@@ -12,17 +12,22 @@ begin
     gem.authors = ["Dave Hrycyszyn", "Dmitry Brazhkin"]
     gem.add_development_dependency "shoulda"
     gem.add_development_dependency "rack-test"
+    gem.add_development_dependency "machinist"
+    gem.add_development_dependency "machinist-dm"
+    gem.add_development_dependency "faker"
+    gem.add_development_dependency "sham"
+    gem.add_development_dependency "minitest"
     gem.add_dependency "data_mapper", ">=1.0.2"
     gem.add_dependency "dm-sqlite-adapter", ">=1.0.2"
     gem.add_dependency "state_machine", ">=0.9.4"
     gem.add_dependency "eventmachine", ">=0.12.10"
     gem.add_dependency "sinatra-flash"
-    gem.add_dependency "ruby-debug"
+    gem.add_dependency "debugger"
     gem.add_dependency "sinatra", ">=1.0.0"
     gem.add_dependency "streamio-ffmpeg", ">=0.7.3"
     gem.add_dependency "thin"
     gem.add_dependency "em-http-request"
-    gem.add_dependency "activesupport", "=2.3.12"
+    gem.add_dependency "activesupport", ">=2.3.12"
 
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -55,7 +60,7 @@ task :test => :check_dependencies
 
 task :default => :test
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
