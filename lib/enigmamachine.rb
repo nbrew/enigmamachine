@@ -79,7 +79,7 @@ class EnigmaMachine < Sinatra::Base
   # Let's bind this thing to localhost only, it'd be suicidal to put it on the
   # internet by binding it to all available interfaces.
   #
-  set :bind, 'localhost'
+  set :bind, EnigmaMachine.bind_to || 'localhost'
 
   # Register helpers
   #
@@ -124,7 +124,7 @@ class EnigmaMachine < Sinatra::Base
 
   # Some accessors for config variables
   #
-  cattr_accessor :download_storage_path, :enable_http_downloads, :threads
+  cattr_accessor :download_storage_path, :enable_http_downloads, :threads, :bind_to
 
 
   # Shows the enigma status page.

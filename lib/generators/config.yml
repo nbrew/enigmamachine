@@ -3,4 +3,4 @@ password: admin
 threads: 1
 enable_http_downloads: false
 download_storage_path: /path/to/where/downloads/should/end/up
-
+bind_to: 'localhost'
