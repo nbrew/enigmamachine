@@ -27,10 +27,10 @@ Released   : 20071220
 	</div>
 	<div id="menu">
 		<ul>
-			<li <%= 'class="active"' if request.path_info == "/" %>><a href="/">Home</a></li>
-			<li <%= 'class="active"' if request.path_info == "/encoders" %>><a href="/encoders">Available Encoders</a></li>
-			<li <%= 'class="active"' if request.path_info == "/encoders/new" %>><a href="/encoders/new">New Encoder</a></li>			
-			<li <%= 'class="active"' if request.path_info == "/videos" %>><a href="/videos">Videos</a></li>					
+			<li<%= ' class="active"' if request.path_info == "/" %>><a href="/">Home</a></li>
+			<li<%= ' class="active"' if request.path_info == "/encoders" %>><a href="/encoders">Available Encoders</a></li>
+			<li<%= ' class="active"' if request.path_info == "/encoders/new" %>><a href="/encoders/new">New Encoder</a></li>
+			<li<%= ' class="active"' if request.path_info == "/videos" %>><a href="/videos">Videos</a></li>
 		</ul>
 	</div>
 </div>
@@ -52,7 +52,8 @@ Released   : 20071220
 				<ul>
 					<li><a href="http://futurechimp.org">blog</a></li>
 				</ul>
-			</li>		</ul>
+			</li>
+		</ul>
 	</div>
 	<!-- end sidebar -->
 </div>
