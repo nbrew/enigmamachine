@@ -222,7 +222,9 @@ class Video
   def do_download
     FileUtils.rm(file_to_encode, :force => true)
     FileUtils.mkdir_p(File.dirname(file_to_encode))
-    http = EventMachine::HttpRequest.new(file).get :timeout => 10
+    http = EventMachine::HttpRequest.new(file).get  :timeout => 10,
+                                                    :redirects => 1
+
 
     http.stream do |data|
       File.open(file_to_encode, 'a') {|f| f.write(data) }
