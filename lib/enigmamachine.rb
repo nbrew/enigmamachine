@@ -69,7 +69,12 @@ class EnigmaMachine < Sinatra::Base
     @@threads = config['threads']
     @@enable_http_downloads = config['enable_http_downloads']
     @@download_storage_path = config['download_storage_path']
+    @@bind_to = config['bind_to']
   end
+
+  # Some accessors for config variables
+  #
+  cattr_accessor :download_storage_path, :enable_http_downloads, :threads, :bind_to
 
   # Set the views to the proper path inside the gem
   #
@@ -121,11 +126,6 @@ class EnigmaMachine < Sinatra::Base
   #
   enable :sessions
   register Sinatra::Flash
-
-  # Some accessors for config variables
-  #
-  cattr_accessor :download_storage_path, :enable_http_downloads, :threads, :bind_to
-
 
   # Shows the enigma status page.
   #
