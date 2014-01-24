@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/helper'
 
-class TestEncoder <  Test::Unit::TestCase
+class TestEncoder <  Minitest::Test
 
   context "An Encoder instance" do
 

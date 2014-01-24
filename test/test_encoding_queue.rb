@@ -1,6 +1,6 @@
 #require File.dirname(__FILE__) + '/helper'
 
-#class TestEncoderQueue < Test::Unit::TestCase
+#class TestEncoderQueue < Minitest::Test
 
 ##  context "the encode_next_video method" do
 ##    setup do

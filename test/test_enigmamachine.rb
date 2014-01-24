@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestEnigmamachine < Test::Unit::TestCase
+class TestEnigmamachine < Minitest::Test
 
   context "on GET to / without credentials" do
     setup do

@@ -12,7 +12,8 @@ require 'state_machine'
 require 'logger'
 require 'streamio-ffmpeg'
 require 'em-http-request'
-require 'activesupport'
+require 'active_support'
+require 'active_support/core_ext/class/attribute_accessors.rb'
 
 # Extensions to Sinatra
 #
@@ -73,7 +74,7 @@ class EnigmaMachine < Sinatra::Base
   # Set the views to the proper path inside the gem
   #
   set :views, File.dirname(__FILE__) + '/enigmamachine/views'
-  set :public, File.dirname(__FILE__) + '/enigmamachine/public'
+  set :public_dir, File.dirname(__FILE__) + '/enigmamachine/public'
 
   # Let's bind this thing to localhost only, it'd be suicidal to put it on the
   # internet by binding it to all available interfaces.
@@ -90,7 +91,7 @@ class EnigmaMachine < Sinatra::Base
 
   # Include flash notices
   #
-  use Rack::Session::Cookie
+  use Rack::Session::Cookie, :secret => 'change_me'
   use Rack::MethodOverride
 
   # Starts the enigma encoding thread. The thread will be reabsorbed into the
@@ -115,6 +116,11 @@ class EnigmaMachine < Sinatra::Base
   use Rack::Auth::Basic do |username, password|
     [username, password] == [@@username, @@password]
   end
+
+  # enable sessions and flash messages
+  #
+  enable :sessions
+  register Sinatra::Flash
 
   # Some accessors for config variables
   #
