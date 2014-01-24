@@ -5,6 +5,7 @@ require 'base64'
 require 'machinist/data_mapper'
 require 'faker'
 require 'sham'
+require 'minitest/autorun'
 require File.dirname(__FILE__) + '/../lib/enigmamachine'
 require File.expand_path(File.dirname(__FILE__) + "/support/blueprints")
 
@@ -32,7 +33,7 @@ end
 require 'test/unit'
 require 'shoulda'
 
-Test::Unit::TestCase.send(:include, TestHelper)
+Minitest::Test.send(:include, TestHelper)
 
 def basic_auth_creds(username = 'admin', password = 'admin')
   {'HTTP_AUTHORIZATION'=> encode_credentials(username, password)}
